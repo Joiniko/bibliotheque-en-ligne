@@ -123,15 +123,10 @@ Controller.exportData();
 Controller.importData(file);
 ```
 
-## 📊 Points obtenus
-
-- **Fonctionnalités de base** : 16/16 points
-- **Bonus** : 4/4 points
-- **Total** : 20/20 points
 
 ## 👥 Auteurs
 
-[Votre nom et celui de vos coéquipiers]
+- **Elkhadar Adham - Nachafi Sohaila** 
 
 ## 📝 Licence
 
