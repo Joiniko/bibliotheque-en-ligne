@@ -1,25 +1,17 @@
-import { getBooks, addBook } from './model.js';
-import { createBookElement } from './view.js';
+export function createBookElement(book, onEdit, onDelete, onDetail) {
+    const div = document.createElement('div');
+    div.className = 'book';
+    div.id = `book-${book.id}`;
 
-window.onload = () => {
-    getBooks().forEach(book => {
-        createBookElement(book);
-    });
+    div.innerHTML = `
+    <div class="book-content">
+      <div>
+        <strong class="book-title" style="cursor:pointer; color:#007bff;">${book.title}</strong><br/>
+        Note: ${book.note}<br/>
+        <em>${book.comment}</em>
+      </div>
+    </div>
+  `;
 
-    document.getElementById('btnAdd').onclick = handleAdd;
-};
-
-function handleAdd() {
-    const title = document.getElementById('titleInput').value.trim();
-    const note = document.getElementById('noteInput').value.trim();
-    const comment = document.getElementById('commentInput').value.trim();
-
-    if (!title) {
-        alert("Le titre est requis.");
-        return;
-    }
-
-    addBook({ title, note: note || 'N/A', comment });
-    location.reload(); // recharge temporaire
-
+    document.getElementById(book.status).appendChild(div);
 }
