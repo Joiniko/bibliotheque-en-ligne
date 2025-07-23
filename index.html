@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bibliothèque en ligne</title>
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<h1>Ma Bibliothèque</h1>
+
+<!-- Board avec les colonnes -->
+<div class="board">
+    <div class="column" id="toRead">
+        <h2>À lire</h2>
+        <div class="books-container"></div>
+    </div>
+    <div class="column" id="reading">
+        <h2>En cours</h2>
+        <div class="books-container"></div>
+    </div>
+    <div class="column" id="read">
+        <h2>Lus</h2>
+        <div class="books-container"></div>
+    </div>
+</div>
+
+<!-- Formulaire d'ajout/modification -->
+<div class="form-group">
+    <h3><div id="titleAdd">Ajouter un livre</div></h3>
+    <div class="form-container">
+        <input id="titleInput" type="text" placeholder="Titre du livre" />
+        <input id="noteInput" type="number" placeholder="Note" min="0" max="20" step="0.5" />
+        <textarea id="commentInput" placeholder="Commentaire" rows="5"></textarea>
+        <div class="form-buttons">
+            <button onclick="Controller.cancelEdit()" class="cancel-button hidden">Annuler</button>
+            <button onclick="Controller.addBook()" id="btnAdd">Ajouter</button>
+        </div>
+    </div>
+</div>
+
+<!-- Popup d'erreur -->
+<div id="errorPopup" class="popup hidden">
+    <div class="popup-content">
+        <span id="errorMessage"></span>
+        <button onclick="View.closePopup()">
+            <svg class="action-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Popup de confirmation de suppression -->
+<div id="confirmPopup" class="popup-d hidden">
+    <div class="popup-d-content">
+        <p id="confirmMessage">Voulez-vous vraiment supprimer ce livre ?</p>
+        <div class="popup-d-buttons">
+            <button onclick="Controller.confirmDeletion()" class="btn-confirm">Oui</button>
+            <button onclick="Controller.cancelDeletion()" class="btn-cancel">Non</button>
+        </div>
+    </div>
+</div>
+
+<!-- Popup de détail -->
+<div id="detailPopup" class="popup-b hidden">
+    <div class="popup-b-content">
+        <span class="close-btn" onclick="View.closeDetailPopup()">&times;</span>
+        <h2 id="detailTitle"></h2>
+        <p><strong>Note :</strong> <span id="detailNote"></span></p>
+        <p><strong>Commentaire :</strong><br/><span id="detailComment"></span></p>
+    </div>
+</div>
+
+<!-- Chargeur -->
+<div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+</div>
+
+<!-- Scripts -->
+<script src="js/model.js"></script>
+<script src="js/view.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

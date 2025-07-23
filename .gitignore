@@ -1,0 +1,30 @@
+# Fichiers système macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Fichiers système Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dépendances (si vous utilisez npm plus tard)
+node_modules/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+.cache/
